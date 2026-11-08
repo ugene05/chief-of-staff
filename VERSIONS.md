@@ -30,6 +30,13 @@ How and when to update: SPEC.md section 8, "Monthly software check".
 | libatomic1 (needed by Node) | 14.2.0-4ubuntu2~24.04.1 | apt |
 | zstd (needed by Ollama installer) | 1.5.5+dfsg2-2build1.1 | apt |
 
+## Stage 1 status (2026-11-09 00:35 SGT)
+- Done: WSL + GPU, Ollama (no cloud, 64k), Hermes local-only with minimal tools, Telegram both ways (owner-only), auto-start at logon, PC never sleeps, repo + private GitHub, README.
+- Zero-cloud audit (15 min, 23:59–00:14): 27 model calls, all to 127.0.0.1; only outside connection Telegram (149.154.166.110), plus Ubuntu's daily motd-news fetch (motd.ubuntu.com, AWS). Telegram DNS-over-HTTPS lookups (Google/Cloudflare) turned off. Photos are read locally by the model.
+- Strangers: `unauthorized_dm_behavior: ignore` set explicitly (already the default with an allowlist).
+- **Still to do:** (1) turn off motd-news: `wsl -d Ubuntu-24.04 -- sudo systemctl disable --now motd-news.timer` and set `ENABLED=0` in `/etc/default/motd-news`; (2) disable Windows Ollama in Task Manager → Startup apps, then quit it; (3) other-account test (stranger gets no reply; log shows "Unauthorized user (ignored)").
+- Model note for Stage 2: qwen3.5:4b saved "passport expires March 2028" as a fact when asked as a question, and didn't remove it when corrected.
+
 ## Open items
 - WSL only sees 15GB of the 32GB RAM (default limit). Raise it in `%UserProfile%\.wslconfig` before testing any ~30B model in Stage 2.
 - Hermes logs a startup check for Nous Portal (cloud). It fails harmlessly because there is no login. Rule: never log Hermes into Nous Portal or any cloud provider.
