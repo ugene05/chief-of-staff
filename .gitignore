@@ -1,0 +1,21 @@
+# LOCAL ONLY — never pushed (SPEC section 7, GitHub policy Option A)
+memory/
+logs/
+.env
+*.env
+.env.*
+
+# Secrets and keys, wherever they appear
+*.key
+*.pem
+*token*
+*secret*
+auth.json
+
+# Editor / OS / Obsidian workspace state
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/
+Thumbs.db
+desktop.ini
+.DS_Store
