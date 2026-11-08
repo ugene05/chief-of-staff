@@ -10,7 +10,7 @@ How and when to update: SPEC.md section 8, "Monthly software check".
 | Windows 11 Home | 10.0.26200 | C: | Windows Update |
 | NVIDIA driver | 610.88 | C: | NVIDIA App |
 | WSL | 2.7.10.0 (kernel 6.18.33.2-2) | C: | `wsl --version` / `wsl --update` |
-| Ollama (Windows copy) | 0.40.13 | C: | Not used by this project. Quit and removed from startup 2026-11-09 (shortcut kept in `F:\chief-of-staffackup\Ollama.lnk`; to restore, move it back to the Startup folder). Still installed. |
+| Ollama (Windows copy) | 0.40.13 | C: | Not used by this project. Quit and removed from startup 2026-11-09 (shortcut kept in `F:\chief-of-staff\backup\Ollama.lnk`; to restore, move it back to the Startup folder). Still installed. |
 | Keep-alive task | `\ChiefOfStaff\Chief of Staff - Keep Linux running` (at logon: `wsl -d Ubuntu-24.04 --exec sleep infinity`, hidden, restarts every 1 min if it stops) | Task Scheduler | Created 2026-11-08 by `scripts/setup-keep-linux-running.ps1`. Without it, Windows shuts Linux down ~15s after the last window closes and the bot goes offline. Starts only after you log in. |
 | Power plan | Balanced; sleep when plugged in: **Never** (set 2026-11-08); hibernate: never | Settings → System → Power & battery | |
 
