@@ -19,3 +19,6 @@ auth.json
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Local backups of Windows bits (e.g. the old Ollama startup shortcut)
+backup/

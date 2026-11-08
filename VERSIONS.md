@@ -10,7 +10,7 @@ How and when to update: SPEC.md section 8, "Monthly software check".
 | Windows 11 Home | 10.0.26200 | C: | Windows Update |
 | NVIDIA driver | 610.88 | C: | NVIDIA App |
 | WSL | 2.7.10.0 (kernel 6.18.33.2-2) | C: | `wsl --version` / `wsl --update` |
-| Ollama (Windows copy) | 0.40.13 | C: | Not used by this project. Auto-start to be turned off. |
+| Ollama (Windows copy) | 0.40.13 | C: | Not used by this project. Quit and removed from startup 2026-11-09 (shortcut kept in `F:\chief-of-staffackup\Ollama.lnk`; to restore, move it back to the Startup folder). Still installed. |
 | Keep-alive task | `\ChiefOfStaff\Chief of Staff - Keep Linux running` (at logon: `wsl -d Ubuntu-24.04 --exec sleep infinity`, hidden, restarts every 1 min if it stops) | Task Scheduler | Created 2026-11-08 by `scripts/setup-keep-linux-running.ps1`. Without it, Windows shuts Linux down ~15s after the last window closes and the bot goes offline. Starts only after you log in. |
 | Power plan | Balanced; sleep when plugged in: **Never** (set 2026-11-08); hibernate: never | Settings → System → Power & battery | |
 
@@ -34,7 +34,8 @@ How and when to update: SPEC.md section 8, "Monthly software check".
 - Done: WSL + GPU, Ollama (no cloud, 64k), Hermes local-only with minimal tools, Telegram both ways (owner-only), auto-start at logon, PC never sleeps, repo + private GitHub, README.
 - Zero-cloud audit (15 min, 23:59–00:14): 27 model calls, all to 127.0.0.1; only outside connection Telegram (149.154.166.110), plus Ubuntu's daily motd-news fetch (motd.ubuntu.com, AWS). Telegram DNS-over-HTTPS lookups (Google/Cloudflare) turned off. Photos are read locally by the model.
 - Strangers: `unauthorized_dm_behavior: ignore` set explicitly (already the default with an allowlist).
-- **Still to do:** (1) turn off motd-news: `wsl -d Ubuntu-24.04 -- sudo systemctl disable --now motd-news.timer` and set `ENABLED=0` in `/etc/default/motd-news`; (2) disable Windows Ollama in Task Manager → Startup apps, then quit it; (3) other-account test (stranger gets no reply; log shows "Unauthorized user (ignored)").
+- Done 2026-11-09: Ubuntu motd-news off (timer disabled, `ENABLED=0`); Windows Ollama quit and removed from startup.
+- **Still to do:** other-account test (stranger gets no reply; log shows "Unauthorized user (ignored)").
 - Model note for Stage 2: qwen3.5:4b saved "passport expires March 2028" as a fact when asked as a question, and didn't remove it when corrected.
 
 ## Open items
